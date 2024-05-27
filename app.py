@@ -8,7 +8,8 @@ def fetch_poster(movie_id):
     data = response.json()
     return "https://image.tmdb.org/t/p/original/" + data['poster_path']
 
-def recommend(movie):    movie_index = movies[movies['title'] == movie].index[0]
+def recommend(movie):    
+    movie_index = movies[movies['title'] == movie].index[0]
     distance = similarity[movie_index]
     movies_list = sorted(list(enumerate(distance)), reverse=True, key=lambda x: x[1])[1:6]
 
